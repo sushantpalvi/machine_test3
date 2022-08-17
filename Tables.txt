@@ -1,0 +1,20 @@
+CREATE DATABASE [testdemo];
+
+create table categories(
+id int identity primary key not null,
+name varchar(200),
+active bit default 1
+)
+
+insert into categories (name) values('electronics')
+
+select * from categories;
+
+
+create table products (
+id int identity primary key not null,
+name varchar(200),
+categoryid int,
+foreign key (categoryid) references categories(id),
+active bit default 1
+)
